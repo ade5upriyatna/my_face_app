@@ -17,7 +17,7 @@ face_cascade = cv2.CascadeClassifier(
 st.title("Webcam Face Recognition (LBPH)")
 st.write("Press START to activate webcam. Press STOP to end.")
 
-# url=st.text_input("masukin url cctv disini")
+url=st.text_input("masukin url cctv disini")
 start = st.button("START")
 stop = st.button("STOP")
 
@@ -35,7 +35,7 @@ if stop:
 cap = None
 
 if st.session_state.run:
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(url)
 
     while st.session_state.run:
         ret, frame = cap.read()
@@ -67,3 +67,4 @@ if st.session_state.run:
 
     cap.release()
     cv2.destroyAllWindows()
+
